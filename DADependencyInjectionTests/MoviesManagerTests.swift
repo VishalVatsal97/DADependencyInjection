@@ -43,42 +43,4 @@ class MoviesManagerTests: XCTestCase {
         }
     }
     
-    func testSearchListItems_Cached() {
-        let manager = createManager()
-        
-        var result: [ListDisplayable]?
-        
-        let getItemsExpectation = self.expectation(description: "Get List Items Displayable Expectation")
-        manager.getListItems { (items) in
-            result = items
-            getItemsExpectation.fulfill()
-        }
-        self.waitForExpectations(timeout: 0.1) { (error) in
-            guard error == nil else {
-                XCTFail("Expectation error: \(String(describing: error?.localizedDescription))")
-                return
-            }
-            
-            XCTAssertNotNil(result)
-        }
-        
-        let searchItemsExpectation = self.expectation(description: "Search List Items Displayable Expectation")
-        manager.searchListItems(searchTerm: "ghost") { (items) in
-            result = items
-            searchItemsExpectation.fulfill()
-        }
-        self.waitForExpectations(timeout: 0.1) { (error) in
-            guard error == nil else {
-                XCTFail("Expectation error: \(String(describing: error?.localizedDescription))")
-                return
-            }
-            
-            XCTAssertNotNil(result)
-            
-            XCTAssertTrue(result?.count == 5) // Operations demo
-            
-            let item = result?.first
-            XCTAssertEqual(item?.listItemTitle, "Ghost in the Shell")
-        }
-    }
 }
