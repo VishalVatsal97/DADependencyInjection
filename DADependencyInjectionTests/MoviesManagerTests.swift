@@ -100,10 +100,10 @@ class MoviesManagerTests: XCTestCase {
             
             XCTAssertNotNil(result)
             
-            XCTAssertTrue(result?.count == 5) // Operations demo
+            XCTAssertTrue(result?.count == 3) // Operations demo
             
             let item = result?.first
-            XCTAssertEqual(item?.listItemTitle, "Ghost in the Shell")
+            XCTAssertEqual(item?.listItemTitle, "Ghost in Shell")
         }
     }
 }
