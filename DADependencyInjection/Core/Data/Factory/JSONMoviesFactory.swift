@@ -26,6 +26,9 @@ class JSONMoviesFactory: MoviesFactoryProvider {
             let title = jsonDict[MovieItemKey.Title] as? String,
             let description = jsonDict[MovieItemKey.Description] as? String,
             let vote = jsonDict[MovieItemKey.AverageVote] as? Double
+        else {
+                return nil
+        }
         
         return MovieFactoryItem(id: id, title: title, movieDescription: description, averageVote: vote)
     }
