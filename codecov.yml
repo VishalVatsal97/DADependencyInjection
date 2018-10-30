@@ -1,4 +1,5 @@
 ignore:
+    - "DADependencyInjection/AppDelegate.swift"
     - "DADependencyInjection/ViewController.swift"
     - "DADependencyInjection/Libraries/.*"
     - "DADependencyInjectionTests/.*"
